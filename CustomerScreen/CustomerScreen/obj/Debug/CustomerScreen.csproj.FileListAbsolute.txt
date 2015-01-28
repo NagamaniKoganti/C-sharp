@@ -1,0 +1,15 @@
+E:\C#\CustomerScreen\CustomerScreen\bin\Debug\CustomerScreen.exe.config
+E:\C#\CustomerScreen\CustomerScreen\bin\Debug\CustomerScreen.exe
+E:\C#\CustomerScreen\CustomerScreen\bin\Debug\CustomerScreen.pdb
+E:\C#\CustomerScreen\CustomerScreen\obj\Debug\CustomerScreen.FormCustomer.resources
+E:\C#\CustomerScreen\CustomerScreen\obj\Debug\CustomerScreen.Properties.Resources.resources
+E:\C#\CustomerScreen\CustomerScreen\obj\Debug\CustomerScreen.csproj.GenerateResource.Cache
+E:\C#\CustomerScreen\CustomerScreen\obj\Debug\CustomerScreen.exe
+E:\C#\CustomerScreen\CustomerScreen\obj\Debug\CustomerScreen.pdb
+E:\C#\CustomerScreen\CustomerScreen\obj\Debug\CustomerScreen.CustomerPreview.resources
+E:\C#\CustomerScreen\CustomerScreen\obj\Debug\CustomerScreen.MDIParentCustomer.resources
+E:\C#\CustomerScreen\CustomerScreen\obj\Debug\CustomerScreen.FormSearchCustomer.resources
+E:\C#\CustomerScreen\CustomerScreen\obj\Debug\CustomerScreen.Form1.resources
+E:\C#\CustomerScreen\CustomerScreen\obj\Debug\CustomerScreen.csprojResolveAssemblyReference.cache
+E:\C#\CustomerScreen\CustomerScreen\bin\Debug\CustomerDATA.dll
+E:\C#\CustomerScreen\CustomerScreen\bin\Debug\CustomerDATA.pdb

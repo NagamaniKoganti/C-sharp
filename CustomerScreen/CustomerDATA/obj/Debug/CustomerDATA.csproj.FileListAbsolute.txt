@@ -1,0 +1,5 @@
+E:\C#\CustomerScreen\CustomerDATA\bin\Debug\CustomerDATA.dll
+E:\C#\CustomerScreen\CustomerDATA\bin\Debug\CustomerDATA.pdb
+E:\C#\CustomerScreen\CustomerDATA\obj\Debug\CustomerDATA.dll
+E:\C#\CustomerScreen\CustomerDATA\obj\Debug\CustomerDATA.pdb
+E:\C#\CustomerScreen\CustomerDATA\obj\Debug\CustomerDATA.csprojResolveAssemblyReference.cache
