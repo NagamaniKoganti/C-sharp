@@ -1,7 +1,10 @@
-E:\C#\CustomerScreen\CustomerEntrycreen\bin\CustomerEntrycreen.dll
-E:\C#\CustomerScreen\CustomerEntrycreen\bin\CustomerEntrycreen.pdb
-E:\C#\CustomerScreen\CustomerEntrycreen\obj\Debug\CustomerEntrycreen.dll
-E:\C#\CustomerScreen\CustomerEntrycreen\obj\Debug\CustomerEntrycreen.pdb
-E:\C#\CustomerScreen\CustomerEntrycreen\bin\CustomerDATA.dll
-E:\C#\CustomerScreen\CustomerEntrycreen\bin\CustomerDATA.pdb
 E:\C#\CustomerScreen\CustomerEntrycreen\obj\Debug\CustomerEntrycreenWeb.csprojResolveAssemblyReference.cache
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerEntrycreen.dll
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerEntrycreen.pdb
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerMiddleTier.dll
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerDATA.dll
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerMiddleTier.pdb
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerDATA.pdb
+C:\CustomerScreen\CustomerEntrycreen\obj\Debug\CustomerEntrycreenWeb.csprojResolveAssemblyReference.cache
+C:\CustomerScreen\CustomerEntrycreen\obj\Debug\CustomerEntrycreen.dll
+C:\CustomerScreen\CustomerEntrycreen\obj\Debug\CustomerEntrycreen.pdb

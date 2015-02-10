@@ -1,0 +1,7 @@
+C:\CustomerScreen\CustomerMiddleTier\bin\Debug\CustomerMiddleTier.dll
+C:\CustomerScreen\CustomerMiddleTier\bin\Debug\CustomerMiddleTier.pdb
+C:\CustomerScreen\CustomerMiddleTier\bin\Debug\CustomerDATA.dll
+C:\CustomerScreen\CustomerMiddleTier\bin\Debug\CustomerDATA.pdb
+C:\CustomerScreen\CustomerMiddleTier\obj\Debug\CustomerMiddleTier.csprojResolveAssemblyReference.cache
+C:\CustomerScreen\CustomerMiddleTier\obj\Debug\CustomerMiddleTier.dll
+C:\CustomerScreen\CustomerMiddleTier\obj\Debug\CustomerMiddleTier.pdb

@@ -1,0 +1,4 @@
+C:\CustomerScreen\CustomerDATA\bin\Release\CustomerDATA.dll
+C:\CustomerScreen\CustomerDATA\bin\Release\CustomerDATA.pdb
+C:\CustomerScreen\CustomerDATA\obj\Release\CustomerDATA.dll
+C:\CustomerScreen\CustomerDATA\obj\Release\CustomerDATA.pdb

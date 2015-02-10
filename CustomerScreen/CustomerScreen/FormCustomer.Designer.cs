@@ -43,7 +43,7 @@
             this.groupBoxSex = new System.Windows.Forms.GroupBox();
             this.groupBoxStatus = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.BtnAddCustomer = new System.Windows.Forms.Button();
+            this.BtnDeleteCust = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBoxSex.SuspendLayout();
             this.groupBoxStatus.SuspendLayout();
@@ -207,16 +207,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // BtnAddCustomer
+            // BtnDeleteCust
             // 
-            this.BtnAddCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAddCustomer.Location = new System.Drawing.Point(12, 415);
-            this.BtnAddCustomer.Name = "BtnAddCustomer";
-            this.BtnAddCustomer.Size = new System.Drawing.Size(174, 40);
-            this.BtnAddCustomer.TabIndex = 16;
-            this.BtnAddCustomer.Text = "Delete Customer";
-            this.BtnAddCustomer.UseVisualStyleBackColor = true;
-            this.BtnAddCustomer.Click += new System.EventHandler(this.BtnAddCustomer_Click);
+            this.BtnDeleteCust.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDeleteCust.Location = new System.Drawing.Point(12, 415);
+            this.BtnDeleteCust.Name = "BtnDeleteCust";
+            this.BtnDeleteCust.Size = new System.Drawing.Size(174, 40);
+            this.BtnDeleteCust.TabIndex = 16;
+            this.BtnDeleteCust.Text = "Delete Customer";
+            this.BtnDeleteCust.UseVisualStyleBackColor = true;
+            this.BtnDeleteCust.Click += new System.EventHandler(this.BtnDeleteCust_Click);
             // 
             // dataGridView1
             // 
@@ -234,7 +234,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 494);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.BtnAddCustomer);
+            this.Controls.Add(this.BtnDeleteCust);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBoxStatus);
             this.Controls.Add(this.groupBoxSex);
@@ -276,7 +276,7 @@
         private System.Windows.Forms.GroupBox groupBoxSex;
         private System.Windows.Forms.GroupBox groupBoxStatus;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button BtnAddCustomer;
+        private System.Windows.Forms.Button BtnDeleteCust;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

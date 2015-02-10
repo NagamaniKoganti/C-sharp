@@ -5,6 +5,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using CustomerMiddleTier;
+
 namespace CustomerScreen
 {
     public partial class FormCustomer : Form
@@ -21,21 +23,18 @@ namespace CustomerScreen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Commonode cObj = new Commonode();
-            if (cObj.CheckValidation(textBox1.Text) == false)
-            {
-                MessageBox.Show("Customer name is Compulsary");
-            }
-            string gender = "";
+            Customer CustObj = new Customer();
+            CustObj.CountryCode = Convert.ToInt16(textBox1.Text);
+            
             if (radioButtonMale.Checked)
-                gender = "Male";
+                CustObj.Gender = "Male";
             else
-                gender = "Female";
-            string status = "";
+                CustObj.Gender = "Female";
+           
             if (radioButtonMarried.Checked)
-                status = "Married";
+                CustObj.Ismarried = true;
             else
-                status = "Unmarried";
+                CustObj.Ismarried = false;
 
             string hobby="";
             if(checkBoxPainting.Checked)
@@ -44,73 +43,39 @@ namespace CustomerScreen
                 hobby="Reading";
             else
                 hobby="Writing";
-
+            CustObj.Hobbies = hobby;
            /* CustomerPreview Customer = new CustomerPreview();
             Customer.setValues(textBox1.Text, domainUpDowncountry.SelectedItem.ToString(), gender, hobby, status);
             Customer.ShowDialog();*/
 
-            string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
 
-            string query = "Insert into Customer values('" + textBox1.Text + "','" 
-                                                           + domainUpDowncountry.SelectedItem.ToString() + "','" 
-                                                           + gender +"','"
-                                                           +hobby+"','"
-                                                           + radioButtonMarried.Checked+ "')";
-            SqlCommand command = new SqlCommand(query, connection);
-            int Result =command.ExecuteNonQuery();
-            connection.Close();
-            if (Result > 0)
+            bool Result = CustObj.saveCustomer();
+            if (Result)
             {
-                MessageBox.Show(Result + "Records Inserted into database");
+                MessageBox.Show( " 1 Inserted into database");
             }
             else
                 MessageBox.Show("There was aproblem in Adding data");
         }
 
-        private void BtnAddCustomer_Click(object sender, EventArgs e)
+        private void BtnDeleteCust_Click(object sender, EventArgs e)
         {
-           
+            
 
         }
 
         private void FormCustomer_Load(object sender, EventArgs e)
         {
-            Commonode CommonObj = new Commonode();
-
-            string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
-
-            string query = "select *from Customer";
-            SqlCommand command = new SqlCommand(query, connection);
-
-            DataSet DS = new DataSet();
-
-            SqlDataAdapter Dataadopter = new SqlDataAdapter(command);
-
-            Dataadopter.Fill(DS);
+            Customer CS = new Customer();
+            DataSet DS=CS.LoadCustomer();
             dataGridView1.DataSource = DS.Tables[0];
-            connection.Close();
         }
 
         private void  DisplayCustomer(string Customername)
         {
-            Commonode CommonObj = new Commonode();
-
-            string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
-
-            string query = "select *from Customer where name="+"'"+Customername+"'";
-            SqlCommand command = new SqlCommand(query, connection);
-
+            Customer cs = new Customer();
             DataSet DS = new DataSet();
-
-            SqlDataAdapter Dataadopter = new SqlDataAdapter(command);
-
-            Dataadopter.Fill(DS);
+            DS = cs.LoadCustomer(Customername);
 
             textBox1.Text = DS.Tables[0].Rows[0]["name"].ToString();
             domainUpDowncountry.SelectedItem = DS.Tables[0].Rows[0]["country"].ToString();
@@ -139,14 +104,44 @@ namespace CustomerScreen
             else
                 radioButtonUnmarried.Checked=true;
 
-            
-            connection.Close();
-
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string custname = dataGridView1.Rows[e.RowIndex].Cells["name"].Value.ToString();
-            DisplayCustomer(custname);
+            //DisplayCustomer(custname);
+            DataSet ds = new DataSet();
+            Customer cs = new Customer();
+            ds = cs.LoadCustomer(custname);
+            textBox1.Text = ds.Tables[0].Rows[0][0].ToString();
+            domainUpDowncountry.SelectedItem = ds.Tables[0].Rows[0][1].ToString();
+            string gen = ds.Tables[0].Rows[0][2].ToString();
+            if (gen == "Male")
+            {
+                radioButtonMale.Checked = true;
+
+            }
+            else
+                radioButtonFemale.Checked = true;
+            if (ds.Tables[0].Rows[0]["hobbies"].ToString() == "Reading")
+                checkBoxRead.Checked = true;
+            else if (ds.Tables[0].Rows[0]["hobbies"].ToString() == "Writing")
+            {
+                checkBoxRead.Checked = false;
+                checkBoxWriting.Checked = true;
+            }
+            else
+            {
+                checkBoxRead.Checked = false;
+                checkBoxWriting.Checked = false;
+                checkBoxPainting.Checked = true;
+            }
+            bool ss = Convert.ToBoolean(ds.Tables[0].Rows[0]["status"]);
+            if (ss)
+                radioButtonMarried.Checked = true;
+            else
+                radioButtonUnmarried.Checked = true;
+            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

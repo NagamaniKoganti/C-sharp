@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CustomerDATA;
+using CustomerMiddleTier;
 
 namespace CustomerScreen
 {
@@ -23,9 +23,10 @@ namespace CustomerScreen
         {
 
             
-            CustomerDataAccess Customerdetails = new CustomerDataAccess();
-            
-            dataGridView1.DataSource = Customerdetails.GetCustomerDetails(TxtSearchCustomer.Text);
+            Customer Customerdetails = new Customer();
+            Customerdetails.CustomerName=TxtSearchCustomer.Text;
+
+            dataGridView1.DataSource = Customerdetails.LoadCustomer(Customerdetails.CustomerName);
             
 
             

@@ -17,6 +17,6 @@ namespace CustomerScreen
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MDIParentCustomer());
-        }
+            }
     }
 }

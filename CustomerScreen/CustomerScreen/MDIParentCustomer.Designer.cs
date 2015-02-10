@@ -539,6 +539,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MDIParentCustomer";
             this.Text = "MDIParentCustomer";
+            this.Load += new System.EventHandler(this.MDIParentCustomer_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);

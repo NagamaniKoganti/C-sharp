@@ -15,25 +15,17 @@
         <br />
         <br />
         <asp:Label ID="LblCountry" runat="server" Text="Country Name"></asp:Label>
-        <asp:DropDownList ID="DdlCountry" runat="server">
-            <asp:ListItem>India</asp:ListItem>
-            <asp:ListItem>UK</asp:ListItem>
-            <asp:ListItem>USA</asp:ListItem>
-            <asp:ListItem>Singapore</asp:ListItem>
+        <asp:DropDownList ID="DdlCountry" runat="server" OnSelectedIndexChanged="DdlCountry_SelectedIndexChanged">
         </asp:DropDownList>
         <br />
         <br />
-        <asp:RadioButton ID="RadioMale" runat="server" Text="Male" GroupName="Gender"/><asp:RadioButton ID="RadioFemale" runat="server" Text="Female" GroupName="Gender" />
-        <br />
-        <br />
-        <asp:CheckBox ID="CheckBoxRead" runat="server" Text="Reading" /><asp:CheckBox ID="CheckBoxWrite" runat="server" Text="Writing" /><asp:CheckBox ID="CheckBoxPaint" runat="server"  Text="Painting"/>
-        <br />
-        <br />
+        <asp:RadioButton ID="RadioMale" runat="server" Text="Male" GroupName="Gender"/><asp:RadioButton ID="RadioFemale" runat="server" Text="Female" GroupName="Gender" /><br />
+        <asp:Panel ID="Panel1" runat="server"></asp:Panel>
         <asp:RadioButton ID="RadioMarried" runat="server" Text ="Married" GroupName="Status" /><asp:RadioButton ID="RadioUnmarried" runat="server" Text ="Unmarried" GroupName="Status" />
         <br />
         <br />
-        <asp:Button ID="BtnInsert" runat="server" Text="INSERT" OnClick="BtnInsert_Click" /><asp:Button ID="BtnUpdate" runat="server" Text="UPDATE" /><asp:Button ID="BtnDelete" runat="server" Text="DELETE" /><br /><br />
-        <asp:GridView ID="GridViewCustomerDetails" runat="server" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="GridViewCustomerDetails_SelectedIndexChanged">
+        <asp:Button ID="BtnInsert" runat="server" Text="INSERT" OnClick="BtnInsert_Click" /><asp:Button ID="BtnUpdate" runat="server" Text="UPDATE" OnClick="BtnUpdate_Click" /><asp:Button ID="BtnDelete" runat="server" Text="DELETE" OnClick="BtnDelete_Click" /><br />
+        <asp:GridView ID="GridViewCustomerDetails" runat="server" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="GridViewCustomerDetails_SelectedIndexChanged" AutoGenerateSelectButton="True">
             <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
             <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />

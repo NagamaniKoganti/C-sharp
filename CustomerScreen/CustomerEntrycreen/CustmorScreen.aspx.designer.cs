@@ -76,31 +76,13 @@ namespace CustomerEntrycreen {
         protected global::System.Web.UI.WebControls.RadioButton RadioFemale;
         
         /// <summary>
-        /// CheckBoxRead control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBoxRead;
-        
-        /// <summary>
-        /// CheckBoxWrite control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBoxWrite;
-        
-        /// <summary>
-        /// CheckBoxPaint control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBoxPaint;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
         /// RadioMarried control.

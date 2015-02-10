@@ -104,5 +104,13 @@ namespace CustomerScreen
             Form1 f = new Form1();
             f.Show();
         }
+
+        private void MDIParentCustomer_Load(object sender, EventArgs e)
+        {
+            LogIn log = new LogIn();
+            log.MdiParent = this;
+            log.Show();
+
+        }
     }
 }

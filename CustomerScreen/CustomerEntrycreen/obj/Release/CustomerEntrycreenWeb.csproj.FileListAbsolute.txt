@@ -1,0 +1,9 @@
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerEntrycreen.dll
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerEntrycreen.pdb
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerMiddleTier.dll
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerDATA.dll
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerMiddleTier.pdb
+C:\CustomerScreen\CustomerEntrycreen\bin\CustomerDATA.pdb
+C:\CustomerScreen\CustomerEntrycreen\obj\Release\CustomerEntrycreenWeb.csprojResolveAssemblyReference.cache
+C:\CustomerScreen\CustomerEntrycreen\obj\Release\CustomerEntrycreen.dll
+C:\CustomerScreen\CustomerEntrycreen\obj\Release\CustomerEntrycreen.pdb
