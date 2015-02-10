@@ -1,0 +1,39 @@
+﻿body {
+    padding-left:25px;
+    padding-top:25px;
+    
+}
+.Reg-Outer-Wrap{
+    display:block;
+    margin:5px;
+    width:800px;
+    border:solid;
+    border-width:1px;
+    border-color:gray;
+    height:auto;
+}
+.Reg-In-wrap{
+   display:inline-block;
+   width:600px;
+   height:35px;
+   margin:7px;
+}
+.Reg-In-label{
+    color:grey;
+    font-size:14px;
+    }
+.Reg-In-label,.Reg-Out-text,.Reg-Val-1,.Reg-Val-2{
+    width:150px;
+    height:20px;
+    float:left;
+}
+.Reg-Val-1,.Reg-Val-2 {color:red;}
+.div-WizardSample-Sidebar-Steps{
+    background-color:#999966;
+    height:40px;
+    width:150px;
+    margin-left:5px;
+    border-top-right-radius:13px;
+    border-bottom-right-radius:13px;
+    text-decoration:none;
+}

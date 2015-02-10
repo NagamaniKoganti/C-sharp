@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="f3702d96-2e22-4d0f-98a3-65c913d9f81b" name="Activity" linkedPackageId="c4c8970a-67c4-4262-b1e1-b186ca6db3fe" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="c3e69d98-3166-4d59-ba47-63b099d5274c">
+      <profileInstance Id="9e1e17f6-20b1-4d48-abec-bdc79e404749" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="419fe360-4b78-42e1-b75e-45af43a2372f">
+      <profileInstance Id="b882c455-48b4-499c-b458-bcd9a0d315e2" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="ce0debf4-b2f8-4d10-85ee-3ed378e02657" name="Activity" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="aa1ad9e7-2227-4dd9-ba8a-8cb710a44d81" />
+        <nodes>
+          <initialNode Id="8e33de31-e4a5-4d52-be59-a08762ac13c6" name="Initial1" isLeaf="false">
+            <elementDefinition Id="89801709-6b66-4959-88a1-dfbb7f1701e2" />
+          </initialNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="c4c8970a-67c4-4262-b1e1-b186ca6db3fe" name="ModelingProject1">
+    <elementDefinition Id="a8311a74-282e-4ef5-8865-1ae3e57dbb69" />
+  </package>
+</activityRootModel>

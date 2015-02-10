@@ -1,0 +1,5 @@
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\BusinessObjects\bin\Debug\BusinessObjects.dll
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\BusinessObjects\bin\Debug\BusinessObjects.pdb
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\BusinessObjects\obj\Debug\BusinessObjects.csprojResolveAssemblyReference.cache
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\BusinessObjects\obj\Debug\BusinessObjects.dll
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\BusinessObjects\obj\Debug\BusinessObjects.pdb

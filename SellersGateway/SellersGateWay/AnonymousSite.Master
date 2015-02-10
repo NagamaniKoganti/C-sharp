@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AnonymousSite.master.cs" Inherits="SellersGateWay.AnonymousSite" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Styles/Master.css" rel="stylesheet" />
+    <link href="Styles/Register.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header id="Main-Header">
+            <h1>Sellers-Gateway</h1>
+       </header>
+
+
+    <section id="Main-Section">
+            <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+            </div>
+    </section>
+    <footer>
+<p>&copy; 2014 Sellers-Gateway. All rights reserved.</p>
+</footer>
+    </form>
+</body>
+</html>

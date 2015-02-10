@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SGW.master.cs" Inherits="SellersGateWay.Views.SGW" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+<head runat="server" >
+    <title>Sellers Gate Way</title>
+    <link href="Styles/Master.css" rel="stylesheet" />
+    
+</head>
+
+<body>
+      
+<form id="form1" runat="server" >
+
+<header id="Main-Header">
+    <div class="Main-Header-Wrap">
+        <h1 style="width:300px;height:auto;float:left;text-align:center">Sellers-Gateway</h1>
+ <div class="Search"><asp:TextBox ID="TxtSearch" runat="server" Text="SEARCH" CssClass="SearchInput"></asp:TextBox></div>
+<div class="login-Area">
+ <ul>
+  <li><a href="Registeration.aspx" class="Btn-cat-1">Register</a></li>
+  <li><a href="SignIn.aspx" class="Btn-cat-1">Sign-In</a></li>
+  </ul>
+</div>
+</div>
+
+</header>
+
+<nav id="Main-Nav">
+<ul>
+  <li><a href="HomePage.aspx">HOME</a></li>
+  <li><a href="Somepage.aspx">LATEST</a></li>
+  <li><a href="Somepage.aspx">MOST VIEWED</a></li>
+</ul>
+</nav>
+
+   <section style="height:30px;">
+        <div style="background-color:darkolivegreen; float:right;align-items:center;width:100%">
+        <span>Selectem Item</span><span><asp:DropDownList ID="DropDownList1" runat="server" Width="200px" Height="28px">
+                <asp:ListItem>All Catageories</asp:ListItem>
+                <asp:ListItem>Necklace</asp:ListItem>
+                <asp:ListItem>Ear Rings</asp:ListItem>
+                <asp:ListItem>Bangles</asp:ListItem>
+                <asp:ListItem>Anklets</asp:ListItem>
+                <asp:ListItem>Bracelets</asp:ListItem>
+                <asp:ListItem>Rings</asp:ListItem>
+                <asp:ListItem>Toe Rings</asp:ListItem>
+                <asp:ListItem>Long Chains</asp:ListItem>
+            </asp:DropDownList></span>
+        </div>
+    </section>
+
+<section id="Main-Section">
+    
+    
+<div class="Content-Wrap">
+        <div class="Content-Aside">
+        <nav id="Side-Nav">
+            <ul>
+              <li><a href="html5_semantic_elements.asp" class="Btn-cat-1">Today</a></li>
+              <li><a href="html5_geolocation.asp" class="Btn-cat-1">WEEK</a></li>
+              <li><a href="html5_canvas.asp" class="Btn-cat-1">MONTH</a></li>
+            <li><a href="html5_canvas.asp" class="Btn-cat-1">ALL</a></li>
+            </ul>
+        </nav>
+        </div>
+        <div class="Content-Area">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        
+</div>
+
+</section>
+
+
+<footer>
+<p>&copy; 2014 Sellers-Gateway. All rights reserved.</p>
+</footer>
+</form>
+</body>
+   </html>

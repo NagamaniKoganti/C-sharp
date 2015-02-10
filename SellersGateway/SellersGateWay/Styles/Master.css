@@ -1,0 +1,91 @@
+﻿body {
+    font-family: Verdana, sans-serif; 
+    font-size:0.8em;
+
+}
+
+#Main-Header, nav, section, article, footer,aside
+{
+ border:1px solid grey;
+ margin:5px;
+ padding:8px;
+
+}
+
+#Main-Header{
+    background-color:#FF6600;
+    height:50px;
+}
+.Main-Header-Wrap{
+    height:inherit;
+    padding:5px;
+    margin:0px;
+}
+#Main-Nav{
+    background-color:#999966;
+    float:none;
+    
+}
+
+#Main-Nav ul li{display:inline; margin:5px}
+#Side-Nav {background-color:#FF6600;
+}
+
+#Side-Nav ul li{
+     display:inline; margin:0px;
+     }
+#Main-Section{
+    width:98%;
+    height:800px;
+}
+nav ul {
+    margin:0;
+     padding:0;
+     }
+.login-Area ul li {display:inline;text-decoration:none}
+.login-Area,.Search{
+    float:right;
+    object-position:right;
+    padding-right:5px;
+}
+.SearchInput {
+    background:#FFFFFF url('http://www.cssportal.com/form-elements/images/search.png') no-repeat 4px 4px;
+    background-position: right;
+    padding:5px;
+    border:1px solid #CCCCCC;
+    width:200px;
+    height:10px;
+    
+}
+.Content-Wrap{
+    width:inherit;margin:auto;display:block;float:left;
+    background-color:red;
+}
+.Content-Area{
+    width:70%;height:800px;
+    float:left;
+    margin: 0;
+    display:block;
+    background-color:#FFFFFF;
+}
+.Content-Aside{
+    width:30%;
+    height:800px;
+    float:left;
+    display:block;
+    background-color:#FFD1B2;
+     
+}
+.Btn-cat-1{
+    text-decoration:none;
+    background-color:#FF3300;
+    color:black;
+    height:80px;
+    width:70px;
+    border-radius:2px;
+    padding:2px;
+
+}
+footer {
+    background-color:#999966;
+}

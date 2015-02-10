@@ -1,0 +1,6 @@
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\SellersGateWay\bin\SellersGateWay.dll.config
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\SellersGateWay\bin\SellersGateWay.dll
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\SellersGateWay\bin\SellersGateWay.pdb
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\SellersGateWay\obj\Debug\SellersGateWay.dll
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\SellersGateWay\obj\Debug\SellersGateWay.pdb
+E:\C#\ProjectMyteam\SellersGateWay\SourceControl\SellersGateway\SellersGateWay\obj\Debug\SellersGateWay.csprojResolveAssemblyReference.cache
