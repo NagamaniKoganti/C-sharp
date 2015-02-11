@@ -130,12 +130,12 @@ namespace CustomerEntrycreen {
         protected global::System.Web.UI.WebControls.Button BtnDelete;
         
         /// <summary>
-        /// GridViewCustomerDetails control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewCustomerDetails;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

@@ -28,6 +28,24 @@ namespace CustomerDATA
             else
                 return false;
         }
+
+        public DataSet GetHobbies(int CustomerID)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            string query = "select *from CustomerHobbies where CustomerID=" + CustomerID;
+            SqlCommand command = new SqlCommand(query, connection);
+
+            DataSet DS = new DataSet();
+
+            SqlDataAdapter Dataadopter = new SqlDataAdapter(command);
+
+            Dataadopter.Fill(DS);
+            connection.Close();
+            return DS;
+        }
         public DataSet GetHobbies()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
@@ -45,6 +63,7 @@ namespace CustomerDATA
             connection.Close();
             return DS;
         }
+
         public DataSet GetCountries()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
