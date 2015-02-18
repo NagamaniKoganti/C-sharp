@@ -7,4 +7,3 @@ C:\CustomerScreen\CustomerDATA\bin\Debug\CustomerDATA.dll
 C:\CustomerScreen\CustomerDATA\bin\Debug\CustomerDATA.pdb
 C:\CustomerScreen\CustomerDATA\obj\Debug\CustomerDATA.dll
 C:\CustomerScreen\CustomerDATA\obj\Debug\CustomerDATA.pdb
-C:\CustomerScreen\CustomerDATA\obj\Debug\CustomerDATA.csprojResolveAssemblyReference.cache
