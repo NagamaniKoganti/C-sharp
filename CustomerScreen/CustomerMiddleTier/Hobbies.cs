@@ -15,11 +15,6 @@ namespace CustomerMiddleTier
             CustomerDataAccess Cs = new CustomerDataAccess();
             return Cs.GetHobbies();
         }
-        public DataSet LoadHobbies(int CustomerID)
-        {
-            CustomerDataAccess Cs = new CustomerDataAccess();
-            return Cs.GetHobbies(CustomerID);
-        }
         public bool InsertHobby(int CustomerId, int HobbyId)
         {
             CustomerDataAccess cs = new CustomerDataAccess();

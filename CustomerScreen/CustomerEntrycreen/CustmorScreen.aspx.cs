@@ -20,20 +20,19 @@ namespace CustomerEntrycreen
                 DdlCountry.DataTextField = "CountryName";
                 DdlCountry.DataValueField = "ID";
                 DdlCountry.DataBind();
-                //ListItem li = new ListItem("Choose", "0");
-                //DdlCountry.Items.Add(li);
-                //DdlCountry.SelectedValue = "0";
+                ListItem li = new ListItem("Choose", "0");
+                DdlCountry.Items.Add(li);
+                DdlCountry.SelectedValue = "0";
+                
 
-                LoadCustomers();
+                DataSet DT = cs.LoadCustomer();
+                GridViewCustomerDetails.DataSource = DT.Tables[0];
+                GridViewCustomerDetails.DataBind();
+                                
+
                 DisplayHobbies();
-                //Panel1.DataBind();
+                Panel1.DataBind();
             
-        }
-        private void LoadCustomers()
-        {
-               Customer ObjCust = new Customer();
-               GridView1.DataSource = ObjCust.LoadCustomer().Tables[0];
-               GridView1.DataBind();
         }
 
         private void DisplayHobbies()
@@ -87,14 +86,16 @@ namespace CustomerEntrycreen
                         }
                     }
             }         
-                
+                //else
+                //    Response.Write("There was a problem in adding data... please try after some time");
+            
+               
                 catch (Exception ex)
                 {
                     Response.Write("This customer already available");
                 }
            
             Cleardata();
-            LoadCustomers();
             
         
         }
@@ -106,40 +107,11 @@ namespace CustomerEntrycreen
             RadioFemale.Checked = false;
             RadioMarried.Checked = false;
             RadioUnmarried.Checked = false;
-            foreach (object obj in Panel1.Controls)
-            {
-                if (obj.GetType() == typeof(CheckBox))
-                {
-                    ((CheckBox)obj).Checked = false;
-                }
-            }
-        }
-
-        public void LoadHobbies()
-        {
-            Hobbies Objhobby = new Hobbies();
-            DataSet ds = Objhobby.LoadHobbies();
-            foreach (DataRow  objrow in ds.Tables[0].Rows)
-            {
-                foreach (object Controlobj in Panel1.Controls)
-                {
-                    if (Controlobj.GetType() == typeof(CheckBox))
-                    {
-                        if (((CheckBox)Controlobj).ID == objrow["HobbyID"].ToString())   
-                        {
-                            ((CheckBox)Controlobj).Checked = true;
-                        }
-                    }
-
-                }
-
-
-            }
         }
         protected void GridViewCustomerDetails_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cleardata();
-            string custname = GridView1.SelectedRow.Cells[1].Text;
+            string custname = GridViewCustomerDetails.SelectedRow.Cells[1].Text;
                          
             DataSet ds = new DataSet();
             Customer cus = new Customer();
@@ -155,12 +127,26 @@ namespace CustomerEntrycreen
             }
             else
                 RadioFemale.Checked = true;
+         /*   if (ds.Tables[0].Rows[0]["hobbies"].ToString() == "Reading")
+                CheckBoxRead.Checked=true;
+                
+            else if (ds.Tables[0].Rows[0]["hobbies"].ToString() == "Writing")
+            {
+                CheckBoxRead.Checked = false;
+                CheckBoxWrite.Checked = false;
+                
+            }
+            else
+            {
+                CheckBoxRead.Checked = false;
+                CheckBoxWrite.Checked = false; ;
+                CheckBoxPaint.Checked = true;
+            }*/
             bool ss = Convert.ToBoolean(ds.Tables[0].Rows[0]["status"]);
             if (ss)
                 RadioMarried.Checked = true;
             else
                 RadioUnmarried.Checked = true;
-            LoadHobbies(Convert.ToInt16();
         }
 
         protected void BtnUpdate_Click(object sender, EventArgs e)
@@ -181,7 +167,16 @@ namespace CustomerEntrycreen
              }
              else
              { cs.Ismarried=false;}
+             string hobby;
+             /*if(CheckBoxPaint.Checked)
             
+                 hobby="Painting";
+             else if(CheckBoxRead.Checked)
+                 hobby="Reading";
+             else
+                 hobby="Writing";
+             cs.Hobbies=hobby;*/
+           
              bool Result= cs.Updatecustomer();
              if (Result)
              {
