@@ -11,6 +11,7 @@ namespace CustomerEntrycreen
 {
     public partial class CustmorScreen : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,19 +21,20 @@ namespace CustomerEntrycreen
                 DdlCountry.DataTextField = "CountryName";
                 DdlCountry.DataValueField = "ID";
                 DdlCountry.DataBind();
-                ListItem li = new ListItem("Choose", "0");
-                DdlCountry.Items.Add(li);
-                DdlCountry.SelectedValue = "0";
-                
+                //ListItem li = new ListItem("Choose", "0");
+                //DdlCountry.Items.Add(li);
+                //DdlCountry.SelectedValue = "0";
 
-                DataSet DT = cs.LoadCustomer();
-                GridViewCustomerDetails.DataSource = DT.Tables[0];
-                GridViewCustomerDetails.DataBind();
-                                
-
+                LoadCustomers();
                 DisplayHobbies();
-                Panel1.DataBind();
+                //Panel1.DataBind();
             
+        }
+        private void LoadCustomers()
+        {
+               Customer ObjCust = new Customer();
+               GridView1.DataSource = ObjCust.LoadCustomer().Tables[0];
+               GridView1.DataBind();
         }
 
         private void DisplayHobbies()
@@ -86,16 +88,14 @@ namespace CustomerEntrycreen
                         }
                     }
             }         
-                //else
-                //    Response.Write("There was a problem in adding data... please try after some time");
-            
-               
+                
                 catch (Exception ex)
                 {
                     Response.Write("This customer already available");
                 }
            
             Cleardata();
+            LoadCustomers();
             
         
         }
@@ -107,48 +107,37 @@ namespace CustomerEntrycreen
             RadioFemale.Checked = false;
             RadioMarried.Checked = false;
             RadioUnmarried.Checked = false;
+            foreach (object obj in Panel1.Controls)
+            {
+                if (obj.GetType() == typeof(CheckBox))
+                {
+                    ((CheckBox)obj).Checked = false;
+                }
+            }
         }
-        protected void GridViewCustomerDetails_SelectedIndexChanged(object sender, EventArgs e)
+
+        public void LoadHobbies(int CustomerID)
         {
-            Cleardata();
-            string custname = GridViewCustomerDetails.SelectedRow.Cells[1].Text;
-                         
-            DataSet ds = new DataSet();
-            Customer cus = new Customer();
-            ds = cus.LoadCustomer(custname);
-            TxtCustName.Text = ds.Tables[0].Rows[0]["Name"].ToString();
-            string index= ds.Tables[0].Rows[0]["CountryID"].ToString();
-            DdlCountry.SelectedIndex =Convert.ToInt16(index);
-            string gen = ds.Tables[0].Rows[0]["Gender"].ToString();
-            if (gen == "Male")
+            Hobbies Objhobby = new Hobbies();
+            DataSet ds = Objhobby.LoadHobbies();
+            foreach (DataRow  objrow in ds.Tables[0].Rows)
             {
-                RadioMale.Checked = true;
+                foreach (object Controlobj in Panel1.Controls)
+                {
+                    if (Controlobj.GetType() == typeof(CheckBox))
+                    {
+                        if (((CheckBox)Controlobj).ID == objrow["HobbyID"].ToString())   
+                        {
+                            ((CheckBox)Controlobj).Checked = true;
+                        }
+                    }
+
+                }
+
 
             }
-            else
-                RadioFemale.Checked = true;
-         /*   if (ds.Tables[0].Rows[0]["hobbies"].ToString() == "Reading")
-                CheckBoxRead.Checked=true;
-                
-            else if (ds.Tables[0].Rows[0]["hobbies"].ToString() == "Writing")
-            {
-                CheckBoxRead.Checked = false;
-                CheckBoxWrite.Checked = false;
-                
-            }
-            else
-            {
-                CheckBoxRead.Checked = false;
-                CheckBoxWrite.Checked = false; ;
-                CheckBoxPaint.Checked = true;
-            }*/
-            bool ss = Convert.ToBoolean(ds.Tables[0].Rows[0]["status"]);
-            if (ss)
-                RadioMarried.Checked = true;
-            else
-                RadioUnmarried.Checked = true;
         }
-
+        
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
             Customer cs = new Customer();
@@ -167,28 +156,38 @@ namespace CustomerEntrycreen
              }
              else
              { cs.Ismarried=false;}
-             string hobby;
-             /*if(CheckBoxPaint.Checked)
-            
-                 hobby="Painting";
-             else if(CheckBoxRead.Checked)
-                 hobby="Reading";
-             else
-                 hobby="Writing";
-             cs.Hobbies=hobby;*/
-           
+             
              bool Result= cs.Updatecustomer();
              if (Result)
              {
                  Response.Write("Customer record Updated Succesfully");
+                 updatehobbies(Convert.ToInt32(TextBox1.Text));
              }
              else
                  Response.Write("Unbale to update");
+             
              Cleardata();
+        }
+        private void updatehobbies(int customerID)
+        {
+            foreach (object obj in Panel1.Controls)
+            {
+                if (obj.GetType() == typeof(CheckBox))
+                {
+                    
+                        int hobbyID = Convert.ToInt32(((CheckBox)obj).ID);
+                        Hobbies hobby = new Hobbies();
+                        hobby.UpdateHobbies(customerID, hobbyID,((CheckBox)obj).Checked);
+                    
+                }
+            }
+
         }
 
         protected void BtnDelete_Click(object sender, EventArgs e)
         {
+            Hobbies hobby = new Hobbies();
+            hobby.deleteHobbies(Convert.ToInt32(TextBox1.Text));
             Customer CsObj = new Customer();
             CsObj.CustomerName = TxtCustName.Text;
             bool Result = CsObj.DeleteCustomer();
@@ -201,11 +200,42 @@ namespace CustomerEntrycreen
             {
                 Response.Write("UNable to delete record");
             }
+            Cleardata();
+            
+        }
+
+       
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Cleardata();
+            string custname = GridView1.SelectedRow.Cells[2].Text;
+
+            DataSet ds = new DataSet();
+            Customer cus = new Customer();
+            ds = cus.LoadCustomer(custname);
+            TxtCustName.Text = ds.Tables[0].Rows[0]["Name"].ToString();
+            string index = ds.Tables[0].Rows[0]["CountryID"].ToString();
+            DdlCountry.SelectedIndex = Convert.ToInt16(index);
+            string gen = ds.Tables[0].Rows[0]["Gender"].ToString();
+            if (gen == "Male")
+            {
+                RadioMale.Checked = true;
+
+            }
+            else
+                RadioFemale.Checked = true;
+            bool ss = Convert.ToBoolean(ds.Tables[0].Rows[0]["status"]);
+            if (ss)
+                RadioMarried.Checked = true;
+            else
+                RadioUnmarried.Checked = true;
+            LoadHobbies(Convert.ToInt16(ds.Tables[0].Rows[0]["ID"]));
+            TextBox1.Text = ds.Tables[0].Rows[0]["ID"].ToString();
         }
 
         protected void DdlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
