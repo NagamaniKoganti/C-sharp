@@ -11,6 +11,27 @@ namespace CustomerDATA
 {
     public class CustomerDataAccess
     {
+        public bool IsHobbyPresent(int CustomerId, int HobbyId)
+        {
+            string connectionstring = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
+            SqlConnection con = new SqlConnection(connectionstring);
+            con.Open();
+            
+            SqlDataAdapter adapter = new SqlDataAdapter("select *from CustomerHobbies where CustomerID=@CustomerId and HobbyId=@HobbyId", con);
+            SqlParameter param = new SqlParameter("@CustomerID", CustomerId);
+            adapter.SelectCommand.Parameters.Add(param);
+            param = new SqlParameter("@HobbyId", HobbyId);
+            adapter.SelectCommand.Parameters.Add(param);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+            con.Close();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
         public bool InsertHobbies(int CustomerId, int HobbyId)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
@@ -27,6 +48,24 @@ namespace CustomerDATA
             }
             else
                 return false;
+        }
+
+        public DataSet GetHobbies(int CustomerID)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            string query = "select *from CustomerHobbies where CustomerID=" + CustomerID.ToString();
+            SqlCommand command = new SqlCommand(query, connection);
+
+            DataSet DS = new DataSet();
+
+            SqlDataAdapter Dataadopter = new SqlDataAdapter(command);
+
+            Dataadopter.Fill(DS);
+            connection.Close();
+            return DS;
         }
         public DataSet GetHobbies()
         {
@@ -45,14 +84,35 @@ namespace CustomerDATA
             connection.Close();
             return DS;
         }
-        public DataSet GetCountries()
+        public bool DeleteHobbies(int CustomerID)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string query = "select *from CountriesMaster";
+            string query = "Delete from  CustomerHobbies where CustomerID=@CustomerID";
+
             SqlCommand command = new SqlCommand(query, connection);
+            SqlParameter param = new SqlParameter("@CustomerID", CustomerID);
+            command.Parameters.Add(param);
+            int Result = command.ExecuteNonQuery();
+            connection.Close();
+            if (Result > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public DataSet GetCountries()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ToString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+                        
+            SqlCommand command = new SqlCommand("spSelectCountries", connection);
+            command.CommandType = CommandType.StoredProcedure;
 
             DataSet DS = new DataSet();
 
@@ -68,8 +128,10 @@ namespace CustomerDATA
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string query = "select *from Customer where Name='" + CustomerCode + "'";
-            SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand command = new SqlCommand("spSelectCustomer_CustomerCode", connection);
+            SqlParameter param = new SqlParameter("@CustomerCode",CustomerCode);
+            command.Parameters.Add(param);
+            command.CommandType = CommandType.StoredProcedure;
 
             DataSet DS = new DataSet();
 
@@ -105,10 +167,22 @@ namespace CustomerDATA
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string query = "Insert into Customer values('" + Name + "','"
-                                                           + Gender +"','"
-                                                           + status + "','" + CountryCode + "')";
-            SqlCommand command = new SqlCommand(query, connection);
+            
+            SqlCommand command = new SqlCommand("SpInsertCustomer", connection);
+            
+            
+            command.Parameters.Add("@Name",SqlDbType.NVarChar,50);
+            command.Parameters.Add("@Gender",SqlDbType.NVarChar,10);
+            command.Parameters.Add("@status",SqlDbType.Bit);
+            command.Parameters.Add("@CountryCode",SqlDbType.Int);
+
+            command.Parameters["@Name"].Value = Name;
+            command.Parameters["@Gender"].Value =Gender;
+            command.Parameters["@status"].Value = Convert.ToInt16(status);
+            command.Parameters["@CountryCode"].Value = CountryCode;
+
+            command.CommandType = CommandType.StoredProcedure;
+
             int Result =command.ExecuteNonQuery();
             connection.Close();
             if (Result > 0)
@@ -124,13 +198,21 @@ namespace CustomerDATA
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string query = "Update Customer set Name='"
-                             + Name + "',CountryID="
-                             + CountryCode + ",Gender='"
-                             + Gender + "',status="
-                             + Convert.ToInt16(status) + " where Name='" + Name + "'";
+            string query = "Update Customer set Name=@ Name,CountryID=@CountryCode,Gender=@Gender,status=@status where Name=@Name";
 
-            SqlCommand command = new SqlCommand(query, connection);    
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlParameter param = new SqlParameter("@Name", Name);
+            command.Parameters.Add(param);
+
+            param = new SqlParameter("@CountryID", CountryCode);
+            command.Parameters.Add(param);
+
+            param = new SqlParameter("@Gender", Gender);
+            command.Parameters.Add(param);
+
+            param=new SqlParameter("@status",Convert.ToInt16(status));
+            command.Parameters.Add(param);
+
             int Result = command.ExecuteNonQuery();
             connection.Close();
             if (Result > 0)
@@ -147,9 +229,11 @@ namespace CustomerDATA
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string query = "Delete from  Customer where Name='" + Name + "'";
+            string query = "Delete from  Customer where Name=@Name";
 
             SqlCommand command = new SqlCommand(query, connection);
+            SqlParameter param = new SqlParameter("@Name", Name);
+            command.Parameters.Add(param);
             int Result = command.ExecuteNonQuery();
             connection.Close();
             if (Result > 0)
